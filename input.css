@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.box{
+    min-height: 100vh;
+    background-size: 100vw 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+#board{
+    background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
+    height: 90vmin;
+    width: 92vmin;
+    border: 2px solid yellow;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+.food{
+    background: pink;
+    border: .25vmin solid wheat;
+    border-radius: 100%
+}
+.head{
+    background: blue;
+    border: 1px solid wheat;
+    transform: scale(1.02);
+    border-radius: 9px;
+}
+.snake{
+    background: peru;
+    border: 1px solid wheat;
+}
+.btns{
+    position: absolute;
+    top: 80px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid blue;
+    padding: 10px 25px;
+   
+}
+.btn{
+    padding: 10px 30px;
+    margin: 25px 15px;
+    font-size: 20px;
+}
+.btn:hover{
+    font-weight: bold;
+}
+.btn:focus{
+    background: #8f59c4;
+    color: blue;
+}
+#score{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+}
+#hscore{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+}
+.scr{
+    position: absolute;
+    top: 80px;
+    right: 80px;
+}
