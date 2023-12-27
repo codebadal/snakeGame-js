@@ -11,6 +11,7 @@
     align-items: center;
     color: aliceblue;
 }
+
 #board{
     background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
     height: 90vmin;
@@ -23,7 +24,7 @@
 .food{
     background: pink;
     border: .25vmin solid wheat;
-    border-radius: 100%
+    border-radius: 50%
 }
 .head{
     background: blue;
@@ -31,9 +32,10 @@
     transform: scale(1.02);
     border-radius: 9px;
 }
-.snake{
+.snakeBody{
     background: peru;
     border: 1px solid wheat;
+    border-radius: 25%;
 }
 .btns{
     position: absolute;

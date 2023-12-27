@@ -1,21 +1,50 @@
 let inputDiraction = {x:0, y:0};
 let snakearry = [
-    {x:10, y:10}
+    {x:10, y:15}
 ];
 let food = {x:15, y:16};
+let speed = 9;
+let score = 0;
+let highScore = 0;
+let printTime = 0;
+const scoreEl = document.getElementById('score')
+const highScoreEl = document.getElementById('hscore')
 
-let speed = 200;
+
+// hardnes of game or speed of snake 
+
+let esey = document.getElementById('esey');
+esey.addEventListener('click',()=>{
+    speed = 5;
+})
+let mediam = document.getElementById('mediam');
+mediam.addEventListener('click',()=>{
+    speed = 14;
+})
+let hard = document.getElementById('hard');
+hard.addEventListener('click',()=>{
+    speed =20;
+})
+
 
 // game function calling 
 
-setInterval(gameFunction, 200);
+function main(curTime){
+    window.requestAnimationFrame(main)
+    if ((curTime - printTime)/1000 < 1/speed) {
+        return
+    }
+    printTime = curTime
+    gameFunction()
 
+}
+window.requestAnimationFrame(main)
 
 // when game is over
 
 function gameOver(snakearry){
 
-    // wall collide 
+   // wall collide 
     if (snakearry[0].x >= 20 || snakearry[0].x <= 0 || snakearry[0].y >= 20 || snakearry[0].y <= 0) {
         return true
     }
@@ -35,8 +64,10 @@ function gameOver(snakearry){
 
 function gameFunction(){
 
+
 // after game over 
 if (gameOver(snakearry)) {
+    score = 0;
     alert('Game Over press enter to restart')
     inputDiraction = {x:0, y:0};
     snakearry = [
@@ -67,6 +98,13 @@ if (snakearry[0].x === food.x && snakearry[0].y === food.y) {
         x: Math.floor(Math.random()*(b-a)+a), y: Math.floor(Math.random()*(b-a)+a)
     }
 
+    score += 1
+    scoreEl.innerHTML = "Score " + score
+    if (score>= highScore) {
+        highScore = score;
+        highScoreEl.innerHTML = "High Score " + highScore
+    }
+
 }
 
 
@@ -80,7 +118,11 @@ snakearry.forEach((el, index) => {
     const snakeEl = document.createElement('div');
     snakeEl.style.gridColumnStart = el.x;
     snakeEl.style.gridRowStart = el.y;
-    snakeEl.classList.add('snake')
+    if (index === 0) {
+        snakeEl.classList.add('head')
+    } else {
+        snakeEl.classList.add('snakeBody')
+    }
 
     board.appendChild(snakeEl)
 })
