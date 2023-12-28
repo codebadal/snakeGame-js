@@ -1,3 +1,4 @@
+// game variables 
 let inputDiraction = {x:0, y:0};
 let snakearry = [
     {x:10, y:16},
@@ -10,6 +11,10 @@ let printTime = 0;
 const scoreEl = document.getElementById('score')
 const highScoreEl = document.getElementById('hscore')
 
+const gameOverSound = new Audio('assets/gameover.mp3')
+const eatingSound = new Audio('assets/eating.mp3')
+
+
 
 // hardnes of game or speed of snake 
 
@@ -19,13 +24,14 @@ esey.addEventListener('click',()=>{
 })
 let mediam = document.getElementById('mediam');
 mediam.addEventListener('click',()=>{
-    speed = 14;
+    speed = 12;
 })
 let hard = document.getElementById('hard');
 hard.addEventListener('click',()=>{
     speed =20;
 })
 
+// part-1 (totle parts-5)
 
 // game function calling 
 
@@ -40,6 +46,7 @@ function main(curTime){
 }
 window.requestAnimationFrame(main)
 
+// part-2
 // when game is over
 
 function gameOver(snakearry){
@@ -60,6 +67,7 @@ function gameOver(snakearry){
 }
 
 
+// part-3
 // main game function start
 
 function gameFunction(){
@@ -68,6 +76,7 @@ function gameFunction(){
 // after game over 
 if (gameOver(snakearry)) {
     score = 0;
+    gameOverSound.play()
     alert('Game Over press enter to restart')
     inputDiraction = {x:0, y:0};
     snakearry = [
@@ -90,7 +99,7 @@ snakearry[0].y += inputDiraction.y;
 
 if (snakearry[0].x === food.x && snakearry[0].y === food.y) {
     snakearry.unshift({x: snakearry[0].x + inputDiraction.x , y: snakearry[0].y + inputDiraction.y})
-
+    eatingSound.play()
     // new food 
     let a = 2;
     let b = 18
@@ -106,7 +115,6 @@ if (snakearry[0].x === food.x && snakearry[0].y === food.y) {
     }
 
 }
-
 
 
 // showing snake body and head
@@ -130,17 +138,17 @@ snakearry.forEach((el, index) => {
 // showing food on snake board 
 
 const foodEl = document.createElement('div');
-    foodEl.style.gridColumnStart = food.x;
-    foodEl.style.gridRowStart = food.y;
-    foodEl.classList.add('food');
+foodEl.style.gridColumnStart = food.x;
+foodEl.style.gridRowStart = food.y;
+foodEl.classList.add('food');
 
-    board.appendChild(foodEl);
-
+board.appendChild(foodEl);
 
 }
 // gamefunctin end 
 
 
+// part-4
 // game controll events button press 
 window.addEventListener('keydown', 
 (input) =>{
@@ -170,5 +178,31 @@ window.addEventListener('keydown',
             break;
     }
 
+})
+
+// part-5
+// mouse or disply controls button 
+
+let topss = document.getElementById('top');
+let right = document.getElementById('right');
+let left = document.getElementById('left');
+let bottom = document.getElementById('bottom');
+
+
+topss.addEventListener('click',()=>{
+    inputDiraction.x = 0
+    inputDiraction.y = -1
+})
+bottom.addEventListener('click',()=>{
+    inputDiraction.x = 0
+    inputDiraction.y = 1
+})
+right.addEventListener('click',()=>{
+    inputDiraction.x = 1
+    inputDiraction.y = 0
+})
+left.addEventListener('click',()=>{
+    inputDiraction.x = -1
+    inputDiraction.y = 0
 })
 
