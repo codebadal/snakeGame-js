@@ -1,46 +1,52 @@
 *{
     padding: 0;
     margin: 0;
+    background-image: url(./assets/peakpx.jpg);
 }
 .box{
     min-height: 100vh;
     background-size: 100vw 100vh;
-    background: #000;
     display: flex;
-    justify-content: center;
+    gap: 10px;
+    justify-content:space-between;
     align-items: center;
     color: aliceblue;
 }
 
 #board{
-    background: linear-gradient(rgb(170, 236, 170), rgb(236, 236, 167));
+    margin: 20px 40px;
+    background: linear-gradient(rgb(115, 214, 144), rgb(236, 236, 167));
     height: 90vmin;
     width: 92vmin;
-    border: 2px solid yellow;
+    border: 4px solid yellow;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);
 }
 .food{
-    background: pink;
+    background: rgb(95, 89, 214);
     border: .25vmin solid wheat;
-    border-radius: 50%
+    border-radius: 50%;
+    animation: animation 0.4s ease infinite;
 }
 .head{
-    background: blue;
+    background: linear-gradient(rgb(206, 55, 138) , rgb(91, 62, 223));
     border: 1px solid wheat;
     transform: scale(1.02);
     border-radius: 9px;
+    border: 2px solid rgb(53, 38, 50);
 }
 .snakeBody{
-    background: peru;
+    background: rgb(209, 29, 212);
     border: 1px solid wheat;
     border-radius: 25%;
+    transform: scale(0.90);
 }
 .btns{
-    position: absolute;
+    /* position: absolute;
     top: 80px;
-    left: 100px;
+    left: 100px; */
+    margin: 40px;
     display: flex;
     flex-direction: column;
     border: 2px solid blue;
@@ -60,19 +66,29 @@
     color: blue;
 }
 #score{
+    padding: 10px 20px;
     margin: 20px;
     display: flex;
     flex-direction: column;
     font-size: 30px;
 }
 #hscore{
+    padding: 10px 20px;
     margin: 20px;
     display: flex;
     flex-direction: column;
     font-size: 30px;
 }
-.scr{
+/* .scr{
     position: absolute;
     top: 80px;
     right: 80px;
+} */
+@keyframes animation{
+    0%{
+        transform: scale(0.6);
+    }
+    100%{
+        transform: scale(1.3);
+    }
 }

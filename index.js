@@ -1,9 +1,9 @@
 let inputDiraction = {x:0, y:0};
 let snakearry = [
-    {x:10, y:15}
+    {x:10, y:16},
 ];
 let food = {x:15, y:16};
-let speed = 9;
+let speed = 6;
 let score = 0;
 let highScore = 0;
 let printTime = 0;
@@ -109,7 +109,7 @@ if (snakearry[0].x === food.x && snakearry[0].y === food.y) {
 
 
 
-// showing snake on snake board
+// showing snake body and head
 
 const board = document.getElementById('board');
 board.innerHTML = ""
