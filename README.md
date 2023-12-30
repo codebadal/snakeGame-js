@@ -47,7 +47,7 @@ Choose the difficulty level to adjust the snake's speed:
 
 ## Demo
 
-![Snake Game Demo]([(https://codebadal.github.io/snakeGame-js/))
+Check out the [live demo here](https://codebadal.github.io/snakeGame-js).
 
 ## Contributing
 
